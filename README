@@ -1,1 +1,7 @@
 Skz is Android twitter client (for learning)
+
+------------------------
+using
+
+twitter4j.2.2.3.jar
+android api level 9

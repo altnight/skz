@@ -19,7 +19,7 @@
 
 		</activity>
 		<activity android:name="Tweet"></activity>
-		<activity android:name=".TwitterLogin"></activity>
+		<activity android:name="TwitterLogin"></activity>
 
 	</application>
 	<uses-permission android:name="android.permission.INTERNET" />

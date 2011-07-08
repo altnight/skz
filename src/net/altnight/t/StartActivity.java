@@ -6,6 +6,7 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class StartActivity extends Activity {
 	/** Called when the activity is first created. */
@@ -21,12 +22,24 @@ public class StartActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		try {
-			tweet();
-		} catch (TwitterException e) {
-			e.printStackTrace();
+		if (isConnected()) {
+			try {
+				tweet();
+			} catch (TwitterException e) {
+				e.printStackTrace();
+			}
+			finish();
+
+		} else {
+			connectOAuth();
 		}
-		finish();
+	}
+
+	private void connectOAuth() {
+		
+	}
+	private boolean isConnected() {
+		
 	}
 
 	public void tweet() throws TwitterException {
