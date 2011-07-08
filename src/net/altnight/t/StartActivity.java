@@ -17,7 +17,7 @@ public class StartActivity extends Activity {
 
 	private AccessToken accessToken = null;
 
-	private final boolean CONNECTED = false;
+	private boolean CONNECTED = false;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,10 @@ public class StartActivity extends Activity {
 	}
 	private boolean isConnected() {
 		if (CONNECTED){
+			CONNECTED = true;
 			return true;
 		} else{
+			CONNECTED = false;
 			return false;
 		}
 	}
