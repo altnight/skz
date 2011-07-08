@@ -17,7 +17,7 @@ public class StartActivity extends Activity {
 
 	private AccessToken accessToken = null;
 
-	private final String CONNECTED = "";
+	private final boolean CONNECTED = false;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,18 @@ public class StartActivity extends Activity {
 			finish();
 
 		} else {
-			connectOAuth();
+			try {
+				connectOAuth();
+			} catch (TwitterException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
-	private void connectOAuth() {
-		
+	private void connectOAuth() throws TwitterException {
+		Twitter twitter = new TwitterFactory().getInstance();
+		twitter.getOAuthRequestToken();
+		twitter.getAuthorization();
 	}
 	private boolean isConnected() {
 		if (CONNECTED){
