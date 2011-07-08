@@ -17,6 +17,8 @@ public class StartActivity extends Activity {
 
 	private AccessToken accessToken = null;
 
+	private final String CONNECTED = "";
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,7 +41,11 @@ public class StartActivity extends Activity {
 		
 	}
 	private boolean isConnected() {
-		
+		if (CONNECTED){
+			return true;
+		} else{
+			return false;
+		}
 	}
 
 	public void tweet() throws TwitterException {
