@@ -6,18 +6,15 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class StartActivity extends Activity {
 	/** Called when the activity is first created. */
 
-	// twitter api key
-	// private String CONSUMER_KEY = "";
-	// private String CONSUMER_SECRET = "";
-
-	// private Twitter twitter = new TwitterFactory().getInstance();
-
-	// private AccessToken accessToken = null;
-	// private RequestToken reqestToken = null;
 	// private boolean CONNECTED = false;
 
 	@Override
@@ -25,14 +22,16 @@ public class StartActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		Button tweetButton = (Button) findViewById(R.id.sendButton);
+		tweetButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				sendButton_OnClick();
+			}
+		});
+
 		// if (isConnected(CONNECTED)) {
-		// try {
-		// tweet();
-		// } catch (TwitterException e) {
-		// e.printStackTrace();
-		// }
-		// finish();
-		//
+
 		// } else {
 		// try {
 		// connectOAuth();
@@ -60,6 +59,15 @@ public class StartActivity extends Activity {
 	// return false;
 	// }
 	// }
+	private void sendButton_OnClick() {
+		try {
+			tweet();
+		} catch (TwitterException e) {
+			e.printStackTrace();
+		}
+//		finish();
+
+	}
 
 	public void tweet() throws TwitterException {
 		// tweeting
@@ -68,10 +76,12 @@ public class StartActivity extends Activity {
 		final String accessToken = "";
 		final String accessTokenSecret = "";
 
+		EditText tweetText = (EditText) findViewById(R.id.tweetText);
+		
 		Twitter twitter = new TwitterFactory().getInstance();
 		twitter.setOAuthConsumer(consumerKey, consumerSecret);
 		twitter.setOAuthAccessToken(new AccessToken(accessToken, accessTokenSecret));
-		twitter.updateStatus("もう一個テスト");
+		twitter.updateStatus(tweetText.getText().toString());
 
 	}
 }
