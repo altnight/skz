@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="net.altnight.t" android:versionCode="1"
-	android:versionName="1.0">
+	package="net.altnight.t" android:versionCode="1" android:versionName="1.0">
 	<uses-sdk android:minSdkVersion="9" />
 
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
@@ -14,11 +13,11 @@
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="myapp" android:host="oauth" />
+				<data android:scheme="myapp" android:host="oauth" android:path="/"/>
 			</intent-filter>
 
 		</activity>
-		<activity android:name="Tweet"></activity>
+		<!-- <activity android:name="Tweet"></activity> -->
 		<activity android:name="TwitterLogin"></activity>
 
 	</application>
